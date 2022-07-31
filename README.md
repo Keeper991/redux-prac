@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# 인수인계 문서
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 친애하는 후임자에게...
 
-## Available Scripts
+안녕하세요, OO님.  
+회사를 그만두기에 앞서, OO님도 얼른 도망치라고 말하고 싶지만...  
+당신마저 없으면 이 회사는 굴러가지 않습니다...  
+저는 결국 redux를 이해하지 못하고 퇴사하지만, 당신은 할 수 있습니다...  
+부디, 저의 못다 한 꿈을 이뤄주십시오... 🙏  
+필요한 정보는 아래에 기재해뒀습니다..  
+궁금한 사항은.. 스스로 해겨ㄹ...
 
-In the project directory, you can run:
+## 폴더 구조
 
-### `npm start`
+```
+src
+├── App.js
+├── common
+│   ├── Header.jsx              // 헤더 component
+│   └── Layout.jsx              // 레이아웃 component
+├── components
+│   ├── Form.jsx                // 상품 추가 component
+│   ├── ProductItem.jsx         // 상품 아이템 component
+│   ├── ProductList.jsx         // 상품 리스트 component
+│   └── TotalPrice.jsx          // 총 가격 component
+├── index.js
+├── pages
+│   ├── ProductDetailPage.jsx   // 상품 상세 page
+│   └── ProductListPage.jsx     // 상품 리스트 page
+├── reportWebVitals.js
+└── setupTests.js
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 구현 기능
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- '상품 추가' form에 data를 입력하고 '추가'버튼을 누르면, **'상품 리스트에 추가'** 되어야 합니다.
+- 상품 아이템에 있는 '❌' 버튼을 누르면, 해당 아이템이 상품 리스트에서 **'삭제'** 되어야 합니다.
+- 총 가격의 금액은 '상품 리스트'에 있는 **'모든 상품의 가격을 합한 금액'** 이어야 합니다.
+- 상단 우측에 있는 '로그인 버튼'을 누르면, '로그아웃 버튼'으로 변하고, 상품 상세페이지로 갔을 때 그 **상태가 유지** 되어야 합니다.
