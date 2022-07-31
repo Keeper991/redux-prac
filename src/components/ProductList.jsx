@@ -1,14 +1,24 @@
+/** @jsxImportSource @emotion/react */
+
 import { css } from "@emotion/react";
+import { useSelector } from "react-redux";
 import ProductItem from "./ProductItem";
 
-/** @jsxImportSource @emotion/react */
 function ProductList() {
+  const productList = useSelector((store) => store.product.list);
+
   return (
     <section css={productListStyle}>
       <h2>상품 리스트</h2>
       <ul>
-        <ProductItem id={1} name="hih" price={10000} type="상의" />
-        <ProductItem id={2} name="hih" price={10000} type="상의" />
+        {productList.map((productData) => (
+          <ProductItem
+            id={productData.id}
+            name={productData.name}
+            price={productData.price}
+            type={productData.type}
+          />
+        ))}
       </ul>
     </section>
   );
