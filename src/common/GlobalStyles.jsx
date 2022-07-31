@@ -137,6 +137,13 @@ const reset = css`
     border-spacing: 0;
   }
 
+  a,
+  a:visited,
+  a:active {
+    text-decoration: none;
+    color: inherit;
+  }
+
   body {
     width: 100vw;
   }
