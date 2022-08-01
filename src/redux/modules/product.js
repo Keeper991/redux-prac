@@ -16,6 +16,12 @@ export const removeProduct = (productId) => {
   };
 };
 
+export const increaseNextId = () => {
+  return {
+    type: INCREASE_NEXT_ID,
+  };
+};
+
 const initialState = {
   list: [
     {
@@ -31,19 +37,24 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_PRODUCT:
+      const newProduct = action.payload;
       const newList = [...state.list];
-      newList.push(action.payload);
-      return newList;
+
+      newList.push(newProduct);
+
+      return { list: newList, nextId: state.nextId };
     // return [...state.list, action.payload];
     case REMOVE_PRODUCT:
       const filteredList = [...state.list];
       const id = action.payload;
       const index = filteredList.findIndex((item) => item.id === id);
+
       filteredList.splice(index, 1);
-      return filteredList;
+
+      return { list: filteredList, nextId: state.nextId };
     // return state.list.filter((item) => item.id !== action.payload);
     case INCREASE_NEXT_ID:
-      return state.nextId + 1;
+      return { list: state.list, nextId: state.nextId + 1 };
     default:
       return state;
   }

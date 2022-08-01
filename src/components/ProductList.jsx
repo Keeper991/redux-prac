@@ -13,6 +13,7 @@ function ProductList() {
       <ul>
         {productList.map((productData) => (
           <ProductItem
+            key={productData.id}
             id={productData.id}
             name={productData.name}
             price={productData.price}

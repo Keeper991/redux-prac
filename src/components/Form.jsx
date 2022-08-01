@@ -1,22 +1,59 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createProduct, increaseNextId } from "../redux/modules/product";
 
 function Form() {
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [type, setType] = useState("");
+
+  const dispatch = useDispatch();
+  const nextId = useSelector((store) => store.product.nextId);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(createProduct({ id: nextId, name, price, type }));
+    dispatch(increaseNextId());
+
+    setName("");
+    setPrice("");
+    setType("");
+  };
   return (
     <section css={formStyle}>
       <h2>상품 추가</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
           <h3>상품명</h3>
-          <input name="product-title" />
+          <input
+            name="product-title"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
         </label>
         <label>
           <h3>가격</h3>
-          <input name="product-price" />
+          <input
+            name="product-price"
+            type="number"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            required
+          />
         </label>
         <label>
           <h3>타입</h3>
-          <select name="product-type">
+          <select
+            name="product-type"
+            value={type}
+            onChange={(e) => setType(e.target.value)}
+            required
+          >
+            <option value="">옵션을 선택해주세요.</option>
             <option value="top">상의</option>
             <option value="bottom">하의</option>
             <option value="cap">모자</option>

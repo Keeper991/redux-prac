@@ -1,11 +1,16 @@
-import { css } from "@emotion/react";
-
 /** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
+import { useSelector } from "react-redux";
+
 function TotalPrice() {
+  const productList = useSelector((store) => store.product.list);
+
   return (
     <section css={totalPriceStyle}>
       <h2>총 가격</h2>
-      <div>{10000}원</div>
+      <div>
+        {productList.reduce((acc, cur) => acc + Number(cur.price), 0)}원
+      </div>
     </section>
   );
 }
